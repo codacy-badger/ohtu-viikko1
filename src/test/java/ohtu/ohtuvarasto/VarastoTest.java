@@ -118,7 +118,7 @@ public class VarastoTest {
 
     @Test
     public void tuottaaMerkkijonoEsityksen() {
-        String expected = "saldo = 0.0, vielä tilaa 10.0";
+        String expected = "saldo = 0.0, vielä tilaa 10.0 asd";
         assertEquals(expected, varasto.toString());
     }
 }

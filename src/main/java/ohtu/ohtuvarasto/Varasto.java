@@ -5,32 +5,25 @@ public class Varasto {
     // --- piilotettu tietorakenteen toteutus: ---
     private double tilavuus;  // paljonko varastoon mahtuu,  > 0
     private double saldo;     // paljonko varastossa on nyt, >= 0
-    private double asd = 7;
 
     // --- konstruktorit: ---
     public Varasto(double tilavuus) {
         if (tilavuus > 0.0) {
             this.tilavuus = tilavuus;
-        } else
-        {
+        } else {
             this.tilavuus = 0.0;
         }
         saldo = 0;
     }
 
     public Varasto(double tilavuus, double alkuSaldo) {
-        if (tilavuus > 0.0) {
-            this.tilavuus = tilavuus;
-        } else
-        {
-            this.tilavuus = 0.0;
-        }
-        if (alkuSaldo < 0.0) {
-            this.saldo = 0.0;
-        } else if (alkuSaldo <= tilavuus)
-        {
+        Varasto varasto = new Varasto(tilavuus);
+        this.tilavuus = varasto.getTilavuus();
+        this.saldo = varasto.getSaldo();
+
+        if (alkuSaldo <= tilavuus) {
             this.saldo = alkuSaldo;
-        } else {
+        } else if (alkuSaldo > 0) {
             this.saldo = tilavuus;
         }
     }
@@ -48,21 +41,10 @@ public class Varasto {
     }
 
     public void lisaaVarastoon(double maara) {
-        for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < 1; j++) {
-
-            }
-        }
-
-        if (maara < 0)
-        {
-            if (true) {
-                return;
-            }
+        if (maara < 0) {
             return;
         }
-        if (maara <= paljonkoMahtuu())
-        {
+        if (maara <= paljonkoMahtuu()) {
             saldo = saldo + maara;
         } else {
             saldo = tilavuus;

@@ -53,3 +53,4 @@ jacocoTestReport {
     }
 }
 
+checkstyleTest.enabled = false

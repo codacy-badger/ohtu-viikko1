@@ -17,13 +17,13 @@ public class Varasto {
     }
 
     public Varasto(double tilavuus, double alkuSaldo) {
-        Varasto varasto = new Varasto(tilavuus);
-        this.tilavuus = varasto.getTilavuus();
-        this.saldo = varasto.getSaldo();
+        this(tilavuus);
 
-        if (alkuSaldo <= tilavuus) {
+        if ( alkuSaldo < 0) {
+            this.saldo = 0;
+        } else if (alkuSaldo <= tilavuus) {
             this.saldo = alkuSaldo;
-        } else if (alkuSaldo > 0) {
+        } else {
             this.saldo = tilavuus;
         }
     }
